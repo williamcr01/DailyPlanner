@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/UI/variables.dart' as etc;
 import 'dart:developer';
 
 class DateBar extends StatefulWidget {
@@ -25,11 +26,20 @@ class _DateBarState extends State<DateBar> {
     log(date.toString());
   }
 
+  void getDate() {
+    log(date.toString());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.1,
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(width: etc.borderWidth),
+        ),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

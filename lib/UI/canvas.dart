@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo/UI/date_bar.dart';
+import 'package:todo/UI/schedule.dart';
+import 'package:todo/UI/variables.dart' as etc;
 import 'dart:developer';
 
 class Canvas extends StatefulWidget {
@@ -10,11 +12,10 @@ class Canvas extends StatefulWidget {
 }
 
 class _CanvasState extends State<Canvas> {
-  var appBar = AppBar(
+  static var appBar = AppBar(
     centerTitle: true,
     title: const Text('ToDo'),
   );
-  static const borderWidth = 1.2;
   static const fontSizeTitle = 28.0;
 
   @override
@@ -31,7 +32,7 @@ class _CanvasState extends State<Canvas> {
                 children: [
                   InkWell(
                     child: Container(
-                      child: const Text('Schedule',
+                      child: Text('Schedule',
                           style: TextStyle(fontSize: fontSizeTitle)),
                       // Calculate height and width depending on screen size
                       height: (MediaQuery.of(context).size.height -
@@ -40,20 +41,25 @@ class _CanvasState extends State<Canvas> {
                               MediaQuery.of(context).size.height * 0.1) /
                           2,
                       width: MediaQuery.of(context).size.width / 2,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         border: Border(
-                            right: BorderSide(width: borderWidth),
-                            bottom: BorderSide(width: borderWidth),
-                            top: BorderSide(width: borderWidth)),
+                          right: BorderSide(width: etc.borderWidth),
+                          bottom: BorderSide(width: etc.borderWidth),
+                        ),
                       ),
                     ),
                     onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Schedule()),
+                      );
                       log('Tap Schedule');
                     },
                   ),
                   InkWell(
                     child: Container(
-                      child: const Text('To Do',
+                      child: Text('To Do',
                           style: TextStyle(fontSize: fontSizeTitle)),
                       // Calculate height and width depending on screen size
                       height: (MediaQuery.of(context).size.height -
@@ -62,9 +68,9 @@ class _CanvasState extends State<Canvas> {
                               MediaQuery.of(context).size.height * 0.1) /
                           2,
                       width: MediaQuery.of(context).size.width / 2,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         border: Border(
-                          right: BorderSide(width: borderWidth),
+                          right: BorderSide(width: etc.borderWidth),
                         ),
                       ),
                     ),
@@ -88,10 +94,10 @@ class _CanvasState extends State<Canvas> {
                               MediaQuery.of(context).size.height * 0.1) /
                           3,
                       width: MediaQuery.of(context).size.width / 2,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         border: Border(
-                            bottom: BorderSide(width: borderWidth),
-                            top: BorderSide(width: borderWidth)),
+                          bottom: BorderSide(width: etc.borderWidth),
+                        ),
                       ),
                     ),
                     onTap: () {
@@ -109,8 +115,9 @@ class _CanvasState extends State<Canvas> {
                               MediaQuery.of(context).size.height * 0.1) /
                           3,
                       width: MediaQuery.of(context).size.width / 2,
-                      decoration: const BoxDecoration(
-                        border: Border(bottom: BorderSide(width: borderWidth)),
+                      decoration: BoxDecoration(
+                        border:
+                            Border(bottom: BorderSide(width: etc.borderWidth)),
                       ),
                     ),
                     onTap: () {
