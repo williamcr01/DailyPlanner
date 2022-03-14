@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:todo/UI/date_bar.dart';
 import 'package:todo/UI/schedule.dart';
+import 'package:todo/UI/to_do.dart';
+import 'package:todo/UI/goals.dart';
+import 'package:todo/UI/motivation.dart';
+import 'package:todo/UI/thoughts.dart';
 import 'package:todo/UI/variables.dart' as etc;
 import 'dart:developer';
 
@@ -75,6 +79,10 @@ class _CanvasState extends State<Canvas> {
                       ),
                     ),
                     onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const ToDo()),
+                      );
                       log('Tap To Do');
                     },
                   ),
@@ -101,6 +109,10 @@ class _CanvasState extends State<Canvas> {
                       ),
                     ),
                     onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Goals()),
+                      );
                       log('Tap Goals');
                     },
                   ),
@@ -121,6 +133,11 @@ class _CanvasState extends State<Canvas> {
                       ),
                     ),
                     onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Motivation()),
+                      );
                       log('Tap Motivation');
                     },
                   ),
@@ -138,6 +155,11 @@ class _CanvasState extends State<Canvas> {
                       //decoration: const BoxDecoration(),
                     ),
                     onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Thoughts()),
+                      );
                       log('Tap Thoughts');
                     },
                   ),
