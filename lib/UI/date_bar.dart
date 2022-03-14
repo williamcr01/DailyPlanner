@@ -3,7 +3,9 @@ import 'package:todo/UI/variables.dart' as etc;
 import 'dart:developer';
 
 class DateBar extends StatefulWidget {
-  const DateBar({Key? key}) : super(key: key);
+  final daysAdded;
+
+  const DateBar({Key? key, this.daysAdded}) : super(key: key);
 
   @override
   State<DateBar> createState() => _DateBarState();
@@ -11,10 +13,12 @@ class DateBar extends StatefulWidget {
 
 class _DateBarState extends State<DateBar> {
   var date = DateTime.now();
+  var daysAdded = 0;
 
   void prevDate() {
     setState(() {
       date = date.subtract(Duration(days: 1));
+      daysAdded--;
     });
     log(date.toString());
   }
@@ -22,16 +26,23 @@ class _DateBarState extends State<DateBar> {
   void nextDate() {
     setState(() {
       date = date.add(Duration(days: 1));
+      daysAdded++;
     });
     log(date.toString());
   }
 
-  void getDate() {
-    log(date.toString());
+  int getDaysAdded() {
+    log(daysAdded.toString());
+    return daysAdded;
+  }
+
+  void setDateStart(d) {
+    date = DateTime.now().add(Duration(days: d + daysAdded));
   }
 
   @override
   Widget build(BuildContext context) {
+    setDateStart(widget.daysAdded);
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.1,

@@ -28,7 +28,9 @@ class _CanvasState extends State<Canvas> {
         appBar: appBar,
         body: Column(
           children: [
-            DateBar(),
+            DateBar(
+              daysAdded: 0,
+            ),
             Row(children: [
               // Create two rows to store the interface in
               Column(
